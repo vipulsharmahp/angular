@@ -1,0 +1,51 @@
+<html data-ng-app="demoApp">
+<head></head>
+<body>
+<div>
+
+<div data-ng-view=""> </div>
+	
+</div>
+<script src="lib/angular.min.js"></script>
+<script>
+var demoApp = angular.module('demoApp',[]);
+demoApp.config(function ($routeProvider){
+	$routeProvider
+	.when('/',
+	{
+		controller : 'simpleController';
+		templateUrl : 'partials/test1.html';
+	})
+	.when('/test2',
+	{
+		controller : 'simpleController';
+		templateUrl : 'partials/test2.html';
+	})
+	.otherwise({redirectTo : '/'});
+	
+});
+
+
+
+demoApp.controller('simpleController', function($scope){
+	$scope.names = [
+		{name:'John Smith',city:'Shimla'},
+		{name:'Bhonchi',city:'Dehra'},
+		{name:'Peter',city:'Sirsa'},
+		{name:'John Kuta',city:'Hamirpur'}
+	];
+	
+	$scope.addPerson = function()
+	{
+		$scope.names.push(
+		{
+			name : $scope.newPerson.name,  
+			city : $scope.newPerson.city 
+		});
+	};
+});
+
+  
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<html data-ng-app="">
+<head></head>
+<body data-ng-init="names=[{name:'John Smith',city:'Shimla'},{name:'Bhonchi',city:'Dehra'},{name:'Peter',city:'Sirsa'},{name:'John Kuta',city:'Hamirpur'}]">
+Name:
+<br/>
+<input type="text" data-ng-model="name"/> {{ name }} 
+<br/>
+<ul>
+<li data_ng_repeat="personname in names | filter:name | orderBy:'city'">{{ personname.name }} - {{ personname.city }}</li>
+</ul>
+
+<script src="lib/angular.min.js"></script>
+</body>
+
+</html>
